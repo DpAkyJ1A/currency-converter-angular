@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.exchangeRatesService.getData().subscribe(obj => {
       this.exchangeRates = obj.data;
-      console.log(obj.data);
       this.loaded = true;
     })
   }

@@ -1,11 +1,22 @@
-<div class="max-w-5xl container mx-auto pt-5">
-  <header class="flex justify-between">
-    <h1>Курс Валют</h1>
-    <p *ngIf="loaded">USD: {{ exchangeRates.UAH.value | number: '.2-2' }}</p>
-    <p *ngIf="loaded">EUR: {{ 1 / exchangeRates.EUR.value * exchangeRates.UAH.value | number: '.2-2' }}</p>
+<div class="w-full container">
+  <header class="flex justify-between py-3 px-5 bg-dark text-lightXl">
+    <h1 class="text-2xl">Конвертер Валют</h1>
+    <div class="flex gap-5">
+      <p class="text-xl" *ngIf="loaded">USD: {{ exchangeRates.UAH.value | number: '.2-2' }} ₴</p>
+      <p class="text-xl" *ngIf="loaded">EUR: {{ 1 / exchangeRates.EUR.value * exchangeRates.UAH.value | number: '.2-2' }} ₴</p>
+    </div>
   </header>
+
+  <main class="max-w-5xl container mx-auto">
+    <app-conversion
+      [exchangeRates]="exchangeRates"
+    ></app-conversion>
+  </main>
+</div>
+
+<!-- <div class="max-w-5xl container mx-auto bg-light">
 
   <app-conversion
     [exchangeRates]="exchangeRates"
   ></app-conversion>
-</div>
+</div> -->
