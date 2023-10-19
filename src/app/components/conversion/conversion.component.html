@@ -1,0 +1,25 @@
+<div>
+  <label>Количество:</label>
+  <input type="number" />
+</div>
+<div>
+  <label>Из валюты:</label>
+  <select>
+    <option *ngFor="let exchangeRate of exchangeRates | keyvalue" [value]="exchangeRate.key">
+      {{ exchangeRate.key }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <label>Количество:</label>
+  <input type="number" />
+</div>
+<div>
+  <label>Из валюты:</label>
+  <select>
+    <option *ngFor="let exchangeRate of exchangeRates | keyvalue" [value]="exchangeRate.key">
+      {{ exchangeRate.key }}
+    </option>
+  </select>
+</div>
