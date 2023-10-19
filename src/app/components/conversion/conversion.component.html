@@ -1,25 +1,53 @@
-<div>
-  <label>Количество:</label>
-  <input type="number" />
-</div>
-<div>
-  <label>Из валюты:</label>
-  <select>
-    <option *ngFor="let exchangeRate of exchangeRates | keyvalue" [value]="exchangeRate.key">
-      {{ exchangeRate.key }}
-    </option>
-  </select>
-</div>
+<div class="flex justify-between py-8">
+  <div class="flex gap-4">
+    <div class="flex flex-col w-40">
+      <label>Количество:</label>
+      <input
+        type="number"
+        class="border py-1 px-2"
+        [(ngModel)]="amount1"
+        (ngModelChange)="convert1to2()"
+      />
+    </div>
+    <div class="flex flex-col w-40">
+      <label>Валюта:</label>
+      <select
+        [(ngModel)]="currency1"
+        (ngModelChange)="convert1to2()"
+      >
+        <option
+          *ngFor="let exchangeRate of exchangeRates | keyvalue"
+          [value]="exchangeRate.key"
+        >
+          {{ exchangeRate.key }}
+        </option>
+      </select>
+    </div>
+  </div>
 
-<div>
-  <label>Количество:</label>
-  <input type="number" />
-</div>
-<div>
-  <label>Из валюты:</label>
-  <select>
-    <option *ngFor="let exchangeRate of exchangeRates | keyvalue" [value]="exchangeRate.key">
-      {{ exchangeRate.key }}
-    </option>
-  </select>
+  <div class="flex gap-4">
+    <div class="flex flex-col w-40">
+      <label>Валюта:</label>
+      <select
+        [(ngModel)]="currency2"
+        (ngModelChange)="convert2to1()"
+      >
+        <option
+          *ngFor="let exchangeRate of exchangeRates | keyvalue"
+          [value]="exchangeRate.key"
+        >
+          {{ exchangeRate.key }}
+        </option>
+      </select>
+    </div>
+    <div class="flex flex-col w-40">
+      <label>Количество:</label>
+      <input
+        type="number"
+        class="border py-1 px-2"
+        [(ngModel)]="amount2"
+        (ngModelChange)="convert2to1()"
+      />
+    </div>
+  </div>
 </div>
